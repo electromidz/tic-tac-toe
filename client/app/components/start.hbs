@@ -1,0 +1,4 @@
+<h2>Start a Competition</h2>
+<div>Create your journey:</div>
+<input type="text" value={{this.user}} {{on "input" this.handleInput}} />
+<button type="button" {{on "click" (fn this.sendMessage this.user)}}>Create User</button>
