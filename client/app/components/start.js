@@ -2,10 +2,12 @@ import Component from '@glimmer/component';
 import { inject as controller } from '@ember/controller';
 import { inject as service } from '@ember/service';
 import { action } from '@ember/object';
+import Route from '@ember/routing/route';
 
 export default class StartComponent extends Component {
-  // @service('websocket') websocket;
-  @service('socket-io') socketIOService;
+  @service('websocket') websocket;
+  @service router;
+
   user = '';
 
   @action
@@ -17,8 +19,7 @@ export default class StartComponent extends Component {
       isOnline: true,
     };
     console.log('USER ->', user);
-    // this.websocket.sendMessage(JSON.stringify(user));
-    this.socketIOService.onConnect;
+    this.websocket.sendMessage(JSON.stringify(user));
   }
 
   @action
